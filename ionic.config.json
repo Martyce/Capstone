@@ -1,0 +1,7 @@
+{
+  "name": "GCSETAPP",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,111 @@
+<!--
+  Generated template for the ViewborrowdetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>#<span [innerHTML]="ctrlNo">2018105</span> <ion-badge large>Pending</ion-badge></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+      <ion-row>
+        <h4>Reservation Details</h4>
+        <table style="width: 100%;">
+          <tbody>
+            <tr>
+              <td>Event Facility:</td>
+              <td [innerHTML]="datas.reservationDt.aaFacility"></td>
+            </tr>
+            <tr>
+              <td>Title of Event</td>
+              <td [innerHTML]="datas.reservationDt.aeventTitle">Sample Event name</td>
+            </tr>
+            <tr>
+              <td>Requestor's Full Name</td>
+              <td>Mart Macion</td>
+            </tr>
+            <tr>
+              <td>Department</td>
+              <td>Cahs</td>
+            </tr>
+            <tr>
+              <td>Contact Numer:</td>
+              <td [innerHTML]="datas.reservationDt.deventCont">09879897987</td>
+            </tr>
+            <tr>
+              <td>Type of Event</td>
+              <td [innerHTML]="datas.reservationDt.feventType">Forum</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td [innerHTML]="datas.reservationDt.geventDesc">Lorem ipsum de astenador de quilaalamba Loremi La quilala se ipsumes taerd tirador ng motor</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <h4>Event Date/s</h4>
+        <table style="width: 100%;">
+          <tbody>
+            <tr *ngFor="let dt of sdates">
+              <td>{{dt.eventDate}}</td>
+              <td>{{dt.eventFrom}}</td>
+              <td>{{dt.eventTo}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+    
+        <ion-col col-12 *ngIf="hide">
+          <h4>Materials/Equipment</h4>
+          <table style="width: 100%;">
+            <tbody>
+              <tr *ngFor="let dt of evtMat">
+                <td>{{dt.itemName}}</td>
+                <td>{{dt.itemQty}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Other Specification</h4>
+          <table style="width: 100%;">
+            <tbody>
+              <tr>
+                <td>Attendees from Outside</td>
+                <td [innerHTML]="datas.otherSpec.aoutsideAtt">10</td>
+              </tr>
+              <tr>
+                <td>Attendees from Gordon College</td>
+                <td [innerHTML]="datas.otherSpec.binsideAtt">9</td>
+              </tr>
+              <tr>
+                <td>With Food Catering</td>
+                <td [innerHTML]="datas.otherSpec.cfoodCateg">No</td>
+              </tr>
+              <tr>
+                <td>Ushers</td>
+                <td [innerHTML]="datas.otherSpec.dushers">0</td>
+              </tr>
+            </tbody>
+          </table>
+          <h5>Additional Information (Resource speakers or VIP)</h5>
+          <table style="width: 100%;">
+            <tbody>
+              <tr *ngFor="let dtx of rsVP">
+                <td>{{dtx.fullName}}</td>
+              </tr>
+            </tbody>
+          </table>
+    
+        </ion-col>
+        <ion-col col-12>
+          <button ion-button round outline class="item-center" (click)="onSub()">  <ion-icon ios="ios-send" md="md-send"></ion-icon>&nbsp; &nbsp; &nbsp;FINISH</button>
+        </ion-col>
+      </ion-row>
+    
+    </ion-content>

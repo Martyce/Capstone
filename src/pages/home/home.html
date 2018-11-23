@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sample</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <table style="width: 100%;text-align: center">
+          <thead padding>
+            <tr>
+              <th>No.</th>
+              <th>Column 1</th>
+              <th>Column 2</th>
+            </tr>
+          </thead>
+          <tbody padding>
+            <tr *ngFor="let dt of datas">
+              <td>Row 1</td>
+              <td>Row 2</td>
+              <td>Row 3</td>
+            </tr>           
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+  <ion-item>
+    <ion-label>Sample Length</ion-label>
+    <ion-input type="text" [(ngModel)]="ltotal"></ion-input>
+  </ion-item>
+  <p>
+    If you get lost, the
+    <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+  </p>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+</ion-content>

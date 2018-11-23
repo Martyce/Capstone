@@ -1,0 +1,10 @@
+page-home {
+
+}
+
+table tr td, tr th{
+    padding: 10px;
+}
+tbody tr:nth-of-type(odd) { 
+    background: #eee; 
+}

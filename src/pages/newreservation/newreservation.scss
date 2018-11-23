@@ -1,0 +1,51 @@
+.lb{
+    background-color: rgb(220, 238, 248);
+}
+
+.lt{
+    margin-top: 10px!important;
+}
+.card-md p{
+    font-size: 1.6rem!important;
+}
+
+hr{ 
+    height: 5px !important;
+    width: 50px !important;
+    background: lightblue!important;
+    display: block !important;
+    font-size: 2em !important;
+    visibility: visible !important;    
+    border: 0;
+    height: 1px;
+}
+.calendar-col{
+    font-size: 20px!important;
+    padding: 4px;
+}
+
+.card-background-page {
+      ion-card {
+        position: relative;
+        text-align: center;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        background-blend-mode: multiply;
+      }
+      
+      
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+      }
+}

@@ -1,0 +1,87 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="background" scroll="true" style="text-align:center">
+  <ion-buttons start>
+    <button ion-button color="light" (click)="dismiss()">
+      Back to Login
+    </button>
+  </ion-buttons>
+  <form [formGroup]="myG" (ngSubmit)="submitForm()">
+    <h2 style="text-align: center; color: white">Welcome to GCSET!</h2>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="ios-person-outline" item-left></ion-icon>
+      </ion-label>
+      <ion-input formControlName="xfn" type="text" placeholder="Full Name" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myG.get('xfn').hasError('required') && (myG.get('xfn').dirty || myG.get('xfn').touched)">
+      <small class="error">Field must not be empty</small>
+    </ion-item>
+
+
+    <ion-item id="emRed">
+
+      <ion-label>
+        <ion-icon name="mail" item-left></ion-icon>
+      </ion-label>
+      <ion-input formControlName="em" (ionBlur)="checkUser()" [(ngModel)]="emailvad" type="email" placeholder="Email Address"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myG.get('em').hasError('required') && (myG.get('em').dirty || myG.get('em').touched)">
+      <small class="error">Field must not be empty</small>
+    </ion-item>
+
+    <ion-item *ngIf="emailmatch">
+      <small class="error">Email already existing</small>
+    </ion-item>
+
+    <ion-item id="redClass_t">
+      <ion-label>
+        <ion-icon name="ios-lock-outline" item-left></ion-icon>
+      </ion-label>
+      <ion-input formControlName="pwd" [(ngModel)]="upwd" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myG.get('pwd').hasError('required') && (myG.get('pwd').dirty || myG.get('pwd').touched)">
+      <small class="error">Field must not be empty</small>
+    </ion-item>
+
+
+    <ion-item id="redClass">
+      <ion-label>
+        <ion-icon name="lock" item-left></ion-icon>
+      </ion-label>
+      <ion-input type="password" (ionBlur)="matchPass()" [(ngModel)]="ucpwd" formControlName="cpwd" placeholder="Confirm Password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myG.get('cpwd').hasError('required') && (myG.get('cpwd').dirty || myG.get('cpwd').touched)">
+      <small class="error">Field must not be empty</small>
+    </ion-item>
+    <ion-item *ngIf="pwdmatch">
+      <small class="error">Password didn't match</small>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="contacts" item-left></ion-icon>
+      </ion-label>
+      <ion-input type="text" formControlName="dpt" placeholder="Department or Organization"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myG.get('dpt').hasError('required') && (myG.get('dpt').dirty || myG.get('dpt').touched)">
+      <small class="error">Field must not be empty</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-icon name="call" item-left></ion-icon>
+      </ion-label>
+      <ion-input type="number" formControlName="cnt" placeholder="Contact Number"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myG.get('cnt').hasError('required') && (myG.get('cnt').dirty || myG.get('cnt').touched)">
+      <small class="error">Field must not be empty</small>
+    </ion-item>
+
+    <button style="margin-top: 10px" ion-button round color="secondary" type="submit" [disabled]="!myG.valid">Register</button>
+  </form>
+</ion-content>

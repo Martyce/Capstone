@@ -1,0 +1,85 @@
+<!--
+  Generated template for the OtherspecsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Others Specification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Will there be Ushers?</ion-label>
+          <ion-toggle [(ngModel)]="ush"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Number of Ushers</ion-label>
+          <ion-input type="number" value="0" placeholder="..." [(ngModel)]="nou" disabled="{{!ush}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Available for Public</ion-label>
+          <ion-toggle [(ngModel)]="apub"></ion-toggle>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label stacked>Expected No of Attendees From Outside</ion-label>
+          <ion-input type="number" value="0" placeholder="..." [(ngModel)]="eao" disabled="{{!apub}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Expected No of Attendees From Gordon College</ion-label>
+          <ion-input type="number" value="0" placeholder="..." [(ngModel)]="eai"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>With Food Catering?</ion-label>
+          <ion-checkbox checked="false" [(ngModel)]="foodCater"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-4>
+      </ion-col>
+      <ion-col col-12>
+        <h4>Guests Speakers or VIP Visitors</h4>
+      </ion-col>
+      <ion-col col-10>
+        <ion-item>
+          <ion-label stacked>Enter Fullname</ion-label>
+          <ion-input [(ngModel)]="vrname" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button round (click)="insertList()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-12>
+        <p>VIP/Resource Speaker List</p>
+        <table style="width: 100%;text-align: center">
+          <thead padding>
+            <tr>
+              <th>Full Name</th>
+            </tr>
+          </thead>
+          <tbody padding id="vipList">
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button round outline class="item-center" (click)="xnextPage()">Next</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

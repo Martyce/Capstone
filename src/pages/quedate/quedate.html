@@ -1,0 +1,91 @@
+<!--
+  Generated template for the QuedatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Select Date</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-12>
+        <ion-calendar #calendar [events]="currentEvents" (onDaySelect)="onDaySelect($event)"></ion-calendar>
+      </ion-col>
+      <hr>
+
+
+      <ion-col col-12 id="sch">
+
+      </ion-col>
+
+      <ion-col col-12>
+        <button ion-button round class="item-center" color="secondary" (click)="selTime()">
+          <ion-icon name="add"></ion-icon>&nbsp; &nbsp;Select this Date</button>
+      </ion-col>
+
+      <ion-col col-8 offset-1 id="frmtime" style="display: none">
+        <ion-item>
+          <ion-label>From</ion-label>
+          <ion-datetime #ftime displayFormat="hh:mm" [(ngModel)]="myDate"></ion-datetime>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-3>
+        <p style="margin-top: 15px" id="ftm"></p>
+      </ion-col>
+
+      <ion-col col-8 offset-1 id="totime" style="display: none">
+        <ion-item>
+          <ion-label>To</ion-label>
+          <ion-datetime displayFormat="hh:mm" [hourValues]="tval" [(ngModel)]="myDateX" (ionChange)="getTimeX()"></ion-datetime>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-3>
+        <p style="margin-top: 15px" id="ttm"></p>
+      </ion-col>
+
+      <ion-col col-12>
+        <button id="addBtn" ion-button round (click)="addDate()" style="width: 100%;text-align: center;display: none">
+          <ion-icon name="add"></ion-icon>&nbsp; Add Date
+        </button>
+      </ion-col>
+
+      <ion-col col-12>
+        <p style="width: 100%;text-align: center">Event Date and Time List</p>
+        <table style="width: 100%;text-align: center">
+          <thead padding>
+            <tr>
+              <th>Date</th>
+              <th>From</th>
+              <th>To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of sdates;let i = index">
+              <td>{{x.eventDate}}</td>
+              <td>{{x.eventFrom}}</td>
+              <td>{{x.eventTo}}</td>
+              <td>
+                <ion-icon (click)="remDate(i)" name="close-circle"></ion-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+
+      <ion-col col-12>
+        <button ion-button round outline class="item-center" (click)="nextPage()">Next</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

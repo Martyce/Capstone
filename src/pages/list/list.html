@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Reservations</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <ion-segment [(ngModel)]="rooms">
+      <ion-segment-button value="Functions">
+        Functions
+      </ion-segment-button>
+      <ion-segment-button value="RoomsL">
+        Rooms
+      </ion-segment-button>
+      <ion-segment-button value="Equipment">
+        Equipment
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+  <div [ngSwitch]="rooms">
+    <ion-list *ngSwitchCase="'Functions'">
+      <ion-item *ngFor="let dt of functs;let i = index">
+        <h2>Control No #{{ dt.fldCtrlNo }}</h2>
+        <p>
+          <ion-badge>{{ dt.fldRemarks }}</ion-badge>
+        </p>
+        <button round outline ion-button item-end (click)="setPush(dt.fldCtrlNo, 'Functions')">
+          View&nbsp; &nbsp;
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'RoomsL'">
+      <ion-item *ngFor="let dt of lrooms;let i = index">
+        <h2>Control No #{{ dt.fldRoomCtrlNo }}</h2>
+        <p>
+          <ion-badge>{{ dt.fldRemarks }}</ion-badge>
+        </p>
+        <button round outline ion-button item-end (click)="setPush(dt.fldCtrlNo, 'Rooms')">
+          View&nbsp; &nbsp;
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Equipment'">
+      <ion-item>
+        <h2>Control No #101801</h2>
+        <p>
+          <ion-badge>Pending</ion-badge>
+        </p>
+        <button round outline ion-button item-end (click)="setPush()">
+          View&nbsp; &nbsp;
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+
+
+  </div>
+</ion-content>
